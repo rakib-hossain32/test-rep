@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountries, handleVisitedFlags }) => {
   const [visited, steVisited] = useState(false);
 
   const handleVisited = () => {
@@ -10,10 +10,11 @@ const Country = ({ country }) => {
     //     steVisited(true)
     // }
     // visited ? steVisited(false) : steVisited(true)
+    visited || handleVisitedCountries(country);
     steVisited(!visited);
   };
 
-  console.log(country.area.area);
+  // console.log(country.area.area);
   return (
     <div
       className={`p-2 border rounded-2xl space-y-3 ${
@@ -46,6 +47,14 @@ const Country = ({ country }) => {
 
       <button className="btn " onClick={handleVisited}>
         {visited ? "Visited" : "Not Visited"}
+      </button>
+      <button
+        className="btn"
+        onClick={() => {
+          handleVisitedFlags(country.flags.flags.png);
+        }}
+      >
+        Add to Img
       </button>
     </div>
   );

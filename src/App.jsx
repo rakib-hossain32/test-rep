@@ -9,9 +9,10 @@ function App() {
   // const promiseCountries = fetchCountries()
   return <>
   <Suspense fallback={<h1>Loading....</h1>}>
-    <Countries fetchCountries={fetchCountries}><div>adsfd</div></Countries>
+    <Countries fetchCountries={fetchCountries}><div></div></Countries>
   </Suspense>
   </>;
 }
 
 export default App;
+
